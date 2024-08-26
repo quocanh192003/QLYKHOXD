@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewData["Title"] = "BaoCaoVT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <h1>Báo Cáo Sự Cố Vật Tư</h1>
+        <div class="row">
+            <div class="form-wrapper">
+
+                <form>
+                    <div class="form-row">
+                        <label for="ma-vat-tu">Mã vật tư</label>
+                        <input type="text" id="ma-vat-tu" value="VT01">
+                    </div>
+                    <div class="form-row">
+                        <label for="don-vi-tinh">Mã Chủ Thầu</label>
+                        <input type="text" id="don-vi-tinh" value="CT01">
+                    </div>
+                    <div class="form-row">
+                        <label for="ten-vat-tu">Tên vật tư</label>
+                        <input type="text" id="ten-vat-tu" value="Thang gấp">
+                    </div>
+                    <div class="form-row">
+                        <label for="mo-ta">Tên Chủ Thầu</label>
+                        <input type="text" id="mo-ta" value="Hồ Gia Quý">
+                    </div>
+                    <div class="form-row">
+                        <label for="so-luong-ton-kho">Sự Cố Vật Tư</label>
+                        <input type="text" id="so-luong-ton-kho" value="Bị gãy  .....">
+                    </div>
+                    <div class="form-row">
+                        <label for="tinh-trang-vat-tu">Tình trạng vật tư</label>
+                        <select id="tinh-trang-vat-tu">
+                            <option value="dang-duoc-su-dung">Còn sử dụng được</option>
+                            <option value="khong-su-dung">Không sử dụng được</option>
+                        </select>
+                    </div>
+                    <div class="btn-div">
+                        <button class="btn">Báo Cáo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .btn-div{
+        width:100px;
+        padding:5px;
+        
+    }
+    .btn{
+        width:100%;
+        padding:5px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .form-row {
+        width: 50%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    input[readonly] {
+        background-color: #e9ecef;
+    }
+
+    select {
+        width: 100%;
+        padding: 8px;
+</style>
+

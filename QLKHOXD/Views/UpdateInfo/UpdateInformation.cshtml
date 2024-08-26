@@ -1,0 +1,166 @@
+﻿@model NguoiDung
+@{
+    ViewData["Title"] = "UpdateInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="styles.css">
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="container">
+            <h1>Cập nhật thông tin người dùng</h1>
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+            <form method="post" action="UpdateInformation">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="employee-id">Mã NV</label>
+                        @Html.TextBoxFor(model => model.MaNv, new { @readonly = "readonly", @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Chức vụ</label>
+                        <input type="text" id="position" value="@ViewBag.vaitro" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Họ và tên</label>
+                        @Html.TextBoxFor(model => model.HoTen, new { @class = "form-control" })
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        @Html.TextBoxFor(model => model.DienThoai, new{ @class = "form-control"})
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Email</label>
+                        @Html.TextBoxFor(model => model.Email, new{ @class = "form-control"})
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Giới tính</label>
+                        @Html.TextBoxFor(model => model.GioiTinh, new { @readonly = "readonly", @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="address">Địa chỉ</label>
+                    @Html.TextBoxFor(model => model.DiaChi, new { @class = "form-control" })
+                </div>
+                <h2>Thay đổi mật khẩu truy cập</h2>
+                
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="oldPassword">Mật khẩu cũ</label>
+                        <input type="password" id="oldPassword" name="oldPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">Mật khẩu mới</label>
+                        <input type="password" id="newPassword" name="newPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Nhập lại mật khẩu mới</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="cancel-button" onclick="location.reload();">Hủy</button>
+                    <button type="submit" class="update-button">Cập nhật</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="scripts.js"></script>
+<style>
+    .container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 900px;
+    }
+
+    h1, h2 {
+        margin: 0 0 20px 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+    }
+
+        .form-group:last-child {
+            margin-right: 0;
+        }
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[readonly] {
+        background-color: #f0f0f0;
+    }
+
+    .full-width {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    .cancel-button {
+        background-color: #f44336;
+        color: white;
+    }
+
+    .update-button {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>

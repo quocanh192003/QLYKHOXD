@@ -1,0 +1,57 @@
+﻿@model IEnumerable<QLKHOXD.Models.VatTu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+<h1>Danh Sách Vật Tư</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên Vật Tư
+            </th>
+            <th>
+                Số Lượng
+            </th>
+            <th>
+                Đơn Vị Tính
+            </th>
+            <th>
+                Mô Tả
+            </th>
+            <th>
+                Tình Trạng
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenVt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donvitinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TinhTrangVt)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaVt">Edit</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>

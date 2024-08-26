@@ -1,0 +1,203 @@
+﻿
+@{
+    ViewData["Title"] = "TaoPhieuNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <h1>Phiếu Nhập kho</h1>
+       <button>Tạo Phiếu</button>
+        
+                <div class="form-wrapper">
+
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="order-number">Số phiếu</label>
+                                <input type="text" id="order-number" value="PN0001" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="order-date">Ngày nhập hàng</label>
+                                <input type="text" id="order-date" value="22/3/2024" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Trạng thái</label>
+                        <input type="text" id="status" value="Pending Approval" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="employee-name">Nhân viên kho</label>
+                                <input type="text" id="employee-name" value="Nhân viên B" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Ghi chú</label>
+                                <input type="text" id="notes">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="material-code">Mã vật tư</label>
+                                <input type="text" id="material-code" value="VT02">
+                            </div>
+                            <div class="form-group">
+                                <label for="material-name">Tên Vật Tư</label>
+                                <input type="text" id="material-name" value="Máy trộn">
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Số lượng</label>
+                                <input type="text" id="quantity" value="5">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                    <nav class="navbar">
+
+                        <a href="#">Thêm</a>
+                        <a href="#" style="background-color:red">Xóa</a>
+                    </nav>
+                        </div>
+                    </form>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã vật tư</th>
+                            <th>Tên vật tư</th>
+                            <th>Ngày sản xuất</th>
+                            <th>Số lượng</th>
+                            <th>Đơn vị tính</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>VT01</td>
+                            <td>Giàn giáo</td>
+                            <td>20/20/2022</td>
+                            <td>40</td>
+                            <td>Cái</td>
+                        </tr>
+                        <tr>
+                            <td>VT02</td>
+                            <td>Máy trộn</td>
+                            <td>20/20/2022</td>
+                            <td>5</td>
+                            <td>Cái</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+    </div>
+</div>
+<style>
+    
+
+        button{
+            padding:5px;
+            background-color: mediumblue;
+            color:white;
+            font-size:20px;
+            float:right;
+            width:130px;
+            border-radius:10px;
+            margin-top:-50px;
+        }
+        .navbar{
+            display:flex;
+            position:relative;
+            float:right;
+        }
+    .navbar a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 4px;
+    }
+
+        .navbar a:nth-child(1) {
+            background-color: #5A5FFF;
+        }
+
+        .navbar a:nth-child(2) {
+            background-color: #6B4FFF;
+        }
+
+        .navbar a:nth-child(3) {
+            background-color: #28A745;
+        }
+
+        .navbar a:nth-child(4) {
+            background-color: #DC3545;
+        }
+
+    .breadcrumb a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .breadcrumb {
+        margin-top: 10px;
+    }
+
+    .form-wrapper {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+    }
+
+        .form-group:last-child {
+            margin-right: 0;
+        }
+
+    label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[readonly] {
+        background-color: #f0f0f0;
+    }
+
+    .table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+</style>
+

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "ErrorQTC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="notification-container">
+            <div class="icon">
+                <img src="~/assets/img/icons/OIP.jpg" alt="Red X Icon">
+            </div>
+            <p class="message">Bạn Không có quyền truy cập vào trang này!!</p>
+            
+        </div>
+        </div>
+        </div>
+
+<style>
+    .notification-container {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon img {
+        margin-top:50px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .message {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+</style>

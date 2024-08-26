@@ -1,0 +1,87 @@
+﻿@model QLKHOXD.Models.VatTu
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+<h1>Thêm Vật Tư</h1>
+
+<hr />
+<div class="row">
+            <div class="form-wrapper">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-row">
+            <div class="form-group">
+                <label asp-for="MaVt" class="control-label">Mã Vật Tư</label>
+                <input asp-for="MaVt" class="form-control" />
+                <span asp-validation-for="MaVt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenVt" class="control-label">Tên Vật Tư</label>
+                <input asp-for="TenVt" class="form-control" />
+                <span asp-validation-for="TenVt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoLuong" class="control-label">Số Lượng</label>
+                <input asp-for="SoLuong" class="form-control" />
+                <span asp-validation-for="SoLuong" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Donvitinh" class="control-label">Đơn Vị Tính</label>
+                <input asp-for="Donvitinh" class="form-control" />
+                <span asp-validation-for="Donvitinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mota" class="control-label">Mô Tả</label>
+                <input asp-for="Mota" class="form-control" />
+                <span asp-validation-for="Mota" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TinhTrangVt" class="control-label">Tình Trạng VT</label>
+                <input asp-for="TinhTrangVt" class="form-control" />
+                <span asp-validation-for="TinhTrangVt" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" style="margin:0px 450px 0px 450px" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="DSVatTu">Back to List</a>
+</div>
+
+</div>
+</div>
+<style>
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+    }
+
+        .form-group:last-child {
+            margin-right: 0;
+        }
+
+    .form-wrapper {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>

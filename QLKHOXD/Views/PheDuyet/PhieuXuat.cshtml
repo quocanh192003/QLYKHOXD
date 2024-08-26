@@ -1,0 +1,117 @@
+﻿@model IEnumerable<PhieuXuat>
+@{
+    ViewData["Title"] = "Phê Duyệt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <style>
+
+
+
+            .sidebar a {
+                text-decoration: none;
+                color: #333;
+                display: block;
+                padding: 10px 0;
+            }
+
+                .sidebar a.active {
+                    font-weight: bold;
+                }
+
+            button.btn.btn-danger {
+                margin-right: 50px;
+            }
+
+            .breadcrumb {
+                background-color: transparent;
+                margin-bottom: 0;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .table thead {
+                background-color: #f8f9fa;
+            }
+
+            .btn-check, .btn-confirm {
+                width: 80px;
+            }
+        </style>
+
+
+        <div class="d-flex">
+
+            <div class="w-100">
+
+                <div class="content">
+                    <h4>Danh sách phiếu xuất</h4>
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Mã Phiếu</th>
+                                <th scope="col">Mã nhân viên</th>
+                                <th scope="col">Mã người nhận</th>
+                                <th scope="col">Ngày Xuất</th>
+                                <th scope="col">Ghi chú</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col" style="text-align:center;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td><input type="checkbox"></td>
+                                    <td>@item.MaPx</td>
+                                    <td>@item.MaNv</td>
+
+                                    <td>@item.MaNguoiNhan</td>
+                                   
+
+                                    <td>@item.NgayXuatHang</td>
+                                    <td>@item.GhiChu</td>
+
+                                    <td><span class="text-danger">@item.TrangThai</span></td>
+                                    <td style="text-align:center;">
+                                        <a asp-controller="PheDuyet" asp-action="ChiTietPN" class="btn btn-success btn-sm btn-confirm" style="background-color:orangered" asp-route-id="@item.MaPx">Xem</a>
+                                        <button class="btn btn-success btn-sm btn-confirm xn" data-mapn="@item.MaPx">Duyệt</button>
+                                    </td>
+
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <button class="btn btn-danger" style="background-color:blue;">Xác nhận tất cả</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+

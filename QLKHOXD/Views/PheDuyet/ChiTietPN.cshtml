@@ -1,0 +1,133 @@
+﻿@model IEnumerable<ChiTietPhieuNhap>
+@{
+    ViewData["Title"] = "ChiTietPN";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <style>
+
+
+
+            .sidebar a {
+                text-decoration: none;
+                color: #333;
+                display: block;
+                padding: 10px 0;
+            }
+
+                .sidebar a.active {
+                    font-weight: bold;
+                }
+
+            button.btn.btn-danger {
+                margin-right: 50px;
+            }
+
+            .breadcrumb {
+                background-color: transparent;
+                margin-bottom: 0;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .table thead {
+                background-color: #f8f9fa;
+            }
+
+            .btn-check, .btn-confirm {
+                width: 80px;
+            }
+        </style>
+
+
+        <div class="d-flex">
+
+            <div class="w-100">
+
+                <div class="content">
+                    <h4>Chi tiết phiếu nhập</h4>
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                             
+                                <th scope="col">Mã phiếu</th>
+                                <th scope="col">Mã vật tư</th>
+                                <th scope="col">Tên vật tư</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Ngày sản xuất</th>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>@item.MaPn</td>
+                                    <td>@item.MaVt</td>
+                                    @{
+                                        var vtList = ViewBag.vt as List<VatTu>;
+                                        var vt = vtList.FirstOrDefault(n => n.MaVt == item.MaVt);
+                                        if (vt != null)
+                                        {
+                                            <td>@vt.TenVt</td>
+                                        }
+                                    }
+
+                                    <td>@item.SoLuong</td>
+                                    <td><span class="text-danger">@item.NgaySx</span></td>
+                                    
+
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <button id="duyetButton"  class="btn btn-danger xn" style="background-color:forestgreen;">Duyệt</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Hàm để lấy ID từ đường dẫn URL và gán vào thuộc tính data-mapn của nút "Duyệt"
+    function setMapnToButton() {
+        // Lấy đường dẫn URL hiện tại
+        var currentUrl = window.location.href;
+        // Tách ID từ URL (phần cuối của URL)
+        var id = currentUrl.substr(currentUrl.lastIndexOf('/') + 1);
+        // Lấy thẻ nút "Duyệt" bằng ID của nó
+        var button = document.getElementById('duyetButton');
+        // Kiểm tra xem nút có tồn tại không
+        if (button) {
+            // Gán giá trị ID vào thuộc tính data-mapn của nút
+            button.setAttribute('data-mapn', id);
+        }
+    }
+
+    // Gọi hàm khi trang được tải
+    window.onload = setMapnToButton;
+</script>

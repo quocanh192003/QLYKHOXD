@@ -1,0 +1,115 @@
+﻿@model QLKHOXD.Models.NguoiDung
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+<h4>Chỉnh Sửa Nhân Viên</h4>
+<hr />
+<div class="row">
+            <div class="form-wrapper">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaNv" />
+                    <div class="form-row">
+            <div class="form-group">
+                <label asp-for="HoTen" class="control-label">Họ Và Tên</label>
+                <input asp-for="HoTen" class="form-control" />
+                <span asp-validation-for="HoTen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaiKhoan" class="control-label">Tài Khoản</label>
+                <input asp-for="TaiKhoan" class="form-control" />
+                <span asp-validation-for="TaiKhoan" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="form-row">
+            <div class="form-group">
+                <label asp-for="MatKhau" class="control-label">Mật Khẩu</label>
+                <input asp-for="MatKhau" class="form-control" />
+                <span asp-validation-for="MatKhau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdVaitro" class="control-label">Vai Trò</label>
+                <select asp-for="IdVaitro" class="form-control" asp-items="ViewBag.IdVaitro"></select>
+                <span asp-validation-for="IdVaitro" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="form-row">
+            <div class="form-group">
+                <label asp-for="GioiTinh" class="control-label">Giới Tính</label>
+                <input asp-for="GioiTinh" class="form-control" />
+                <span asp-validation-for="GioiTinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DienThoai" class="control-label">Điện Thoại</label>
+                <input asp-for="DienThoai" class="form-control" />
+                <span asp-validation-for="DienThoai" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label">Địa chỉ</label>
+                <input asp-for="DiaChi" class="form-control" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="form-row">
+            <div class="form-group">
+                <label asp-for="TrangThai" class="control-label">Trạng Thái</label>
+                <input asp-for="TrangThai" class="form-control" />
+                <span asp-validation-for="TrangThai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayTao" class="control-label">Ngày Tạo</label>
+                <input asp-for="NgayTao" class="form-control" />
+                <span asp-validation-for="NgayTao" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="NhanVien">Back to List</a>
+</div>
+
+</div>
+</div>
+<style>
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+    }
+
+        .form-group:last-child {
+            margin-right: 0;
+        }
+
+    .form-wrapper {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
